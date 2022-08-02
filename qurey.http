@@ -1,0 +1,45 @@
+POST http://localhost:5000/signup
+Content-Type: application/json
+
+{
+    "email":"k_rohith@wearehackerone.com",
+    "password":"Sairohith@9",
+    "hackerone":"true",
+    "family_name":"victim",
+    "birthday":"13/05/2001"
+
+}
+
+###
+
+POST http://localhost:5000/verify
+Content-Type: application/json
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.75 Safari/537.36
+
+{
+    "user_name": "k_rohith@wearehackerone.com",
+    "confirm": "365844"
+}
+
+###
+
+
+POST http://localhost:5000/login
+Content-Type: application/json
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.75 Safari/537.36
+
+{
+    "email": "k_rohitH@wearehackerone.com",
+    "password": "Sairohith@1"
+}
+
+###
+
+POST http://localhost:5000/getdata
+Content-Type: application/json
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.75 Safari/537.36
+
+{
+    "accessToken":
+"eyJraWQiOiI2WmhDRnJDUldWQzJZMTJZeHFBWjBURlBXR0hickhZclwvekxtZUJJMUtCTT0iLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJiOTgzYzk0Zi1iMjUzLTRmM2EtODdkNi1iYzM5YzRlNGQ5MTQiLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtd2VzdC0yLmFtYXpvbmF3cy5jb21cL3VzLXdlc3QtMl9QRUlxZFo4SkIiLCJjbGllbnRfaWQiOiI3bnZsa3R2Nmh0MGxydjM3ajQ5YWJwMDdvZSIsIm9yaWdpbl9qdGkiOiJkYzZiOGQxZS0yNTc2LTRhOWYtODAzNi0yMjZjMjYxZGVkNTMiLCJldmVudF9pZCI6IjllNWNjZTdhLTc3MWItNDU5YS05YzNjLWI4NzNkMjY0NGFjOSIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiYXdzLmNvZ25pdG8uc2lnbmluLnVzZXIuYWRtaW4iLCJhdXRoX3RpbWUiOjE2NTk0Mjk0NTcsImV4cCI6MTY1OTQzMzA1NywiaWF0IjoxNjU5NDI5NDU3LCJqdGkiOiI5ZDM1MzQ3ZC03MTdiLTQxN2UtODE4My0xNzQ1ZDIxZmNjMmUiLCJ1c2VybmFtZSI6ImI5ODNjOTRmLWIyNTMtNGYzYS04N2Q2LWJjMzljNGU0ZDkxNCJ9.a6bqiRktfjLwoInVCLvHJhWUgLF1JXrd_EI0_6i7HlpryrMut0rbF1Lq4T9F-lgdSuf3emQnztFCn7VBfoORCqicKmBe4GkY1GzLA_L8V-WlqxlqnoJvBrYUvoYezrzI_NjK7UCqGoIu0B5OQ9lYtlDjza82mGqvB4bsayzi0vsf3-MN5uCtOCZ7wKJh2N43IxCLt_rRxzoA4-taPfLo3H_SKRqS_NqjgfzKfIGIsVIDKuSDPZnPU2LGOMjYSKTj0ZStWD8vQ-hSFYcPqx5NSx3KOr8n-gg8PmNaCXQpV1bsvi3q1R2wfvLIytD-eYhoLDcaPE7O5E5KSq42FcAsaQ"
+}
