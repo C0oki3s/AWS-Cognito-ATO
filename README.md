@@ -59,11 +59,13 @@ userPool.signUp(
 
 Then an verification code will recive to your Email [victim@gmail.com] verify it.
 
-Attcker First creates his account will his mail ex: [attacker@gmail.com] and verify's it.
+Attcker First creates his account with his mail ex: [attacker@gmail.com] and verify's it.
 
-Attacker Firstly, Login with his mail and gets access_token and use AWS API to directly update mail to VicTim@gmail.com
+Then, Attacker Login with his mail and gets access_token and use AWS API to directly update mail to VicTim@gmail.com
 
 `aws cognito-idp update-user-attributes --region us-west-2 --access-token [token] --user-attributes Name=email,Value=[victim@mail]` 
+ 
+Login functionality:
 
 ```js
 cognitoUser.authenticateUser(authenticationDetails, {
