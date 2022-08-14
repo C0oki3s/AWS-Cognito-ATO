@@ -109,7 +109,7 @@ Even yet, if a developer doesn't normalise the email parameter, logical errors w
 
 Attacker signup uses k_rothih+1@gmail.com(his own mail) -> server [pre-process] -> stores in the database with sub field being main indentifier for verification factor on the authentication and authorization. Example qurey
 
->1a) SELECT \* FROM users WHERE sub=${sub_field_striped_from_access_token}
+>1a) SELECT \* FROM users WHERE sub=${sub_field_striped_from_access_token}<br/>
 >2a) Users.findOne({sub:${sub_field_striped_from_access_token}})
 
 Victim who doesn't signup (or) have an account in certain orgnization. Example [k_rothih+2@gmail.com]
@@ -137,7 +137,8 @@ a) k_rothih+1@gmail.com[attacker] will signup through server -> stores data in d
        2b) it works as Manual Confirming account in UserPool. an user still Gets access_token if a account is confirmed
 ```
 
-    <img src="/images/falseandconfim.png">
+    
+<img src="/images/falseandconfim.png">
 
 
 2. If A developer uses ID as verifier on the server level and use [email field] in the primary database and always verify with email parameter. Then the account cannot be found in the database when login.
@@ -146,7 +147,7 @@ Cause The Server dont Doesn't have an idea of a change of mail in Cognito.
 
 firstly, attacker +1[attacker] will signup using server logic afterwards will change mail to +2[victim] but +1 still remains in database. When querying database it passes +2 mail cause that what ID token contains after attacker updating mail through Cognito API. When victim trys to create account using +2 mail then it will Throw error User already exists.
 
->1a) SELECT \* FROM users WHERE email=${email_field_striped_from_ID_token}
+>1a) SELECT \* FROM users WHERE email=${email_field_striped_from_ID_token}<br/>
 >2a) Users.findOne({email:${email_field_striped_from_ID_token}})
 
 
