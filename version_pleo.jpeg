@@ -1,0 +1,72 @@
+%!
+
+% --------------------------------------------------------- %
+% --------[ Ghostscript Exploitation Cheat Sheet ]--------- %
+% created by <jens.a.mueller@rub.de> | hacking-printers.net %
+% --------------------------------------------------------- %
+
+% define string
+/str 65535 string def
+
+% given token split to strings
+/strsplit {[3 1 roll {search {3 1 roll}{exit} ifelse} loop]} def
+
+% concatenate two strings
+/strcat {exch dup length 2 index length add string dup
+dup 4 2 roll copy length 4 -1 roll putinterval} def
+
+% concatenate two arrays
+/arrcat {exch 2 copy length exch length add array dup
+dup 5 2 roll copy length exch putinterval} bind def
+
+% get human readable bytesize
+/size {/mb 1048576 def /kb 100 def dup mb div cvi str cvs
+(.) strcat exch kb mod cvi str cvs strcat (M) strcat} def
+
+% set default coordinates and counters
+/x 30 def /y 730 def /row 0 def /col 0 def
+
+% draw a single string
+/draw {
+  y 10 lt {showpage /y 730 def} if x y moveto show /y y 5 sub def
+  /row row 1 add def row 140 mod 0 eq {/x x 194 add def /y 730 def} if
+} def
+
+% draw string but crop if to long
+/cdraw {str cvs dup length 50 gt {0 50 getinterval draw}{draw} ifelse} def
+
+% draw string but break if to long
+/bdraw {str cvs dup length 50 gt {dup dup 0 50 getinterval draw length
+50 sub 50 exch getinterval (  ) exch strcat bdraw}{draw} ifelse} def
+
+% draw newline
+/newline {() draw} def
+
+% draw error
+/errmsg {(*** Error occured on execution ***) cdraw} def
+
+% draw in color
+/red {0.7 0 0 setrgbcolor cdraw 0 0 0 setrgbcolor} def
+/bred {0.7 0 0 setrgbcolor bdraw 0 0 0 setrgbcolor} def
+/green {0 0.5 0 setrgbcolor cdraw 0 0 0 setrgbcolor} def
+
+% set font type and size, draw title
+/Courier findfont 26 scalefont setfont
+
+% assume -dSAFER by default
+/unsafe false def /setunsafe {/unsafe true def} def
+/fp {unsafe {(May be false positive because -dSAFER is missing) draw} if} def
+
+% ======================================================================
+
+/info {
+  product ( ) strcat revision str cvs strcat
+  ( | PS vers. ) strcat version strcat red 
+} def
+
+
+% ======================================================================
+
+        {info}          stopped {errmsg} if
+
+showpage
