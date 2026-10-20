@@ -1,0 +1,23 @@
+// Synthetic fixtures only. None of these identities map to real accounts.
+module.exports = [
+  { email: "ada@example.test", role: "member", tenantId: "tenant-a", active: true },
+  { email: "ben@example.test", role: "member", tenantId: "tenant-a", active: true },
+  { email: "cy@example.test", role: "owner", tenantId: "tenant-a", active: true },
+  { email: "dee@example.test", role: "member", tenantId: "tenant-b", active: true },
+  { email: "eli@example.test", role: "member", tenantId: "tenant-b", active: false },
+  { email: "flo@example.test", role: "admin", tenantId: "tenant-b", active: true },
+  { email: "gus@example.test", role: "member", tenantId: "tenant-c", active: true },
+  { email: "hal@example.test", role: "member", tenantId: "tenant-c", active: true },
+  { email: "ivy@example.test", role: "owner", tenantId: "tenant-c", active: true },
+  { email: "jan@example.test", role: "member", tenantId: "tenant-d", active: true },
+  { email: "kai@example.test", role: "member", tenantId: "tenant-d", active: false },
+  { email: "lou@example.test", role: "admin", tenantId: "tenant-d", active: true },
+  { email: "mia@example.test", role: "member", tenantId: "tenant-e", active: true },
+  { email: "noa@example.test", role: "member", tenantId: "tenant-e", active: true },
+  { email: "oli@example.test", role: "owner", tenantId: "tenant-e", active: true },
+  { email: "pam@example.test", role: "member", tenantId: "tenant-f", active: true },
+  { email: "qui@example.test", role: "member", tenantId: "tenant-f", active: false },
+  { email: "rae@example.test", role: "admin", tenantId: "tenant-f", active: true },
+  { email: "sam@example.test", role: "member", tenantId: "tenant-g", active: true },
+  { email: "taz@example.test", role: "owner", tenantId: "tenant-g", active: true },
+];
